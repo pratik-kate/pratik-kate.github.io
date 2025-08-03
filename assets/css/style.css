@@ -1256,3 +1256,96 @@ h4 {
   font-size: 13px;
   color: #0563bb;
 }
+
+/*--------------------------------------------------------------
+# Popover Styles
+--------------------------------------------------------------*/
+.popover {
+  position: absolute;
+  background: #112240;
+  border: 1px solid #0563bb;
+  padding: 20px 25px;
+  box-shadow: 0 8px 20px rgba(5, 99, 187, 0.7);
+  width: 600px; /* Much wider */
+  max-width: 90vw; /* Responsive for smaller screens */
+  border-radius: 12px;
+  color: #ccd6f6;
+  z-index: 1060;
+  display: none;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Remove arrow related styles */
+
+/* Header: Icon and Title */
+.popover-header {
+  border-bottom: none; /* no border */
+}
+
+.popover-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px solid #0563bb;
+}
+
+/* Title */
+.popover-title {
+  color: #53d3b9;
+  font-weight: 700;
+}
+
+/* Description */
+.popover-description {
+  color: #98a6ad;
+}
+
+/* Carousel images */
+.popover .carousel-inner img {
+  border-radius: 10px;
+  max-height: 300px;
+  object-fit: contain;
+  user-select: none;
+}
+
+/* Footer */
+.popover-footer small {
+  color: #7f8fa4;
+}
+
+/* Close Button */
+.close-popover-btn {
+  background-color: #0563bb;
+  border: none;
+  color: white;
+  padding: 7px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.close-popover-btn:hover {
+  background-color: #0678e3;
+}
+
+/* Responsive for small screens */
+@media (max-width: 700px) {
+  .popover {
+    width: 95vw;
+    padding: 15px 20px;
+  }
+
+  .popover-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .popover .carousel-inner img {
+    max-height: 200px;
+  }
+}
+
