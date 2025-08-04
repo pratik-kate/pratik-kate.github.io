@@ -1266,7 +1266,7 @@ h4 {
   transform: translate(-50%, -50%);
   z-index: 1200;
   display: none;
-  background: #112240;
+  background: linear-gradient(135deg, #1f3556, #274a7c);
   border-radius: 18px;
   box-shadow: 0 8px 40px rgba(5,99,187,0.28);
   width: 820px;
@@ -1344,23 +1344,22 @@ h4 {
   color: #cdd6f6;
   font-size: 1.076rem;
   overflow-y: auto;
-  max-height: 45vh;
+  max-height: 15vh;
   margin-top:4px;
 }
 .popover-app-desc::-webkit-scrollbar { width:6px; background:transparent;}
 .popover-app-desc::-webkit-scrollbar-thumb {background:#223b55; border-radius:5px;}
 
 .popover-screenshots {
-  flex: 0 0 295px;    /* fixed width for screenshots column */
+  flex: 0 0 295px;   
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-width: 0;       /* allow overflow-x to work! */
+  min-width: 0;     
   align-items: flex-start;
   overflow: hidden;
 }
 
-/* Key fix for horizontal scroll and image sizing in popover-carousel: */
 .popover-carousel {
   display: flex;
   flex-direction: row;
@@ -1376,7 +1375,7 @@ h4 {
 .popover-carousel img {
   flex-shrink: 0;
   width: 135px;
-  height: 270px;
+  height: 600px;
   max-height: 90vh;
   object-fit: cover;
   border-radius: 10px;
@@ -1384,6 +1383,19 @@ h4 {
   box-shadow: 0 1px 7px -3px #0563bb80;
   user-select: none;
   display: block;
+}
+
+.popover-screenwise-details ul {
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+.popover-screenwise-details li {
+  margin-bottom: 8px;
+}
+
+.popover-screenwise-details strong {
+  color: #53d3b9;
 }
 
 
