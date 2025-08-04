@@ -178,53 +178,39 @@
         </p>
       </div>
 
+      
+
       <!-- Popover container -->
-      <div class="popover" role="dialog" aria-modal="true" style="display:none; position:absolute;">
-  <!-- App Icon and Name -->
-  <div class="popover-header d-flex align-items-center mb-3">
-    <img src="assets/img/connections.png" alt="App Icon" class="popover-icon me-3" />
-    <h4 class="popover-title mb-0">Connections</h4>
-  </div>
-
-  <!-- Description -->
-  <p class="popover-description mb-3">
-    Connections is a beautifully-crafted, social discovery app built with SwiftUI and Firebase. It features a polished onboarding and authentication flow, dynamic swipable cards for browsing profiles, real-time chat and matches, image caching, and secure user-to-user interactions.
-  </p>
-
-  <!-- Screenshot Carousel -->
-  <div id="carousel-popover" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="assets/img/connection/home.png" class="d-block w-100" alt="Screenshot 1">
+     <div class="popover" role="dialog" aria-modal="true" style="display:none">
+  <div class="popover-inner">
+    <!-- Top row: App icon/name and close -->
+    <div class="popover-header-row">
+      <div class="popover-header-left d-flex align-items-center">
+        <img src="assets/img/connections.png" alt="App Icon" class="popover-app-icon me-2" />
+        <span class="popover-app-title">Connections</span>
       </div>
-      <div class="carousel-item">
-        <img src="assets/img/connection/matches.png" class="d-block w-100" alt="Screenshot 2">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/connection/chatlist.png" class="d-block w-100" alt="Screenshot 3">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/connection/chat.png" class="d-block w-100" alt="Screenshot 3">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/connection/profile.png" class="d-block w-100" alt="Screenshot 3">
-      </div>
-      <!-- Add more carousel items as needed -->
+      <button type="button" class="popover-close-btn close-popover-btn">&times;</button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-popover" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carousel-popover" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+    <!-- Second row: Desc (left) + Screenshots (right) -->
+    <div class="popover-body-row">
+      <div class="popover-app-desc">
+        Connections is a beautifully-crafted, social discovery app built with SwiftUI and Firebase.<br><br>
+        It features a polished onboarding and authentication flow, dynamic swipable cards for browsing profiles, real-time chat and matches, image caching, and secure user-to-user interactions.
+      </div>
+      <div class="popover-screenshots">
+        <div class="popover-carousel">
+          <img src="assets/img/connection/home.png" class="d-block w-100" alt="Screenshot 1">
 
-  <!-- Version and Close -->
-  <div class="popover-footer d-flex justify-content-between align-items-center mt-3">
-    <small class="text-muted">Version: 1.0.0</small>
-    <button type="button" class="btn btn-secondary btn-sm close-popover-btn">Close</button>
+        <img src="assets/img/connection/matches.png" class="d-block w-100" alt="Screenshot 2">
+  
+        <img src="assets/img/connection/chatlist.png" class="d-block w-100" alt="Screenshot 3">
+  
+        <img src="assets/img/connection/chat.png" class="d-block w-100" alt="Screenshot 3">
+
+        <img src="assets/img/connection/profile.png" class="d-block w-100" alt="Screenshot 3">
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

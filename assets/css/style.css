@@ -1261,91 +1261,151 @@ h4 {
 # Popover Styles
 --------------------------------------------------------------*/
 .popover {
-  position: absolute;
-  background: #112240;
-  border: 1px solid #0563bb;
-  padding: 20px 25px;
-  box-shadow: 0 8px 20px rgba(5, 99, 187, 0.7);
-  width: 600px; /* Much wider */
-  max-width: 90vw; /* Responsive for smaller screens */
-  border-radius: 12px;
-  color: #ccd6f6;
-  z-index: 1060;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1200;
   display: none;
+  background: #112240;
+  border-radius: 18px;
+  box-shadow: 0 8px 40px rgba(5,99,187,0.28);
+  width: 820px;
+  max-width: 98vw;
+  max-height: 90vh;
+  padding: 0;
+  overflow: hidden;
   font-family: "Raleway", sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
 }
 
-/* Remove arrow related styles */
-
-/* Header: Icon and Title */
-.popover-header {
-  border-bottom: none; /* no border */
+.popover-inner {
+  padding: 28px 34px 34px 34px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.popover-icon {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 12px;
+.popover-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.popover-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.popover-app-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-right: 10px;
+  background: #fff;
   border: 2px solid #0563bb;
+  box-shadow: 0 0 4px 0 rgba(30,30,60,0.14);
 }
 
-/* Title */
-.popover-title {
+.popover-app-title {
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #53d3b9;
-  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
-/* Description */
-.popover-description {
-  color: #98a6ad;
-}
-
-/* Carousel images */
-.popover .carousel-inner img {
-  border-radius: 10px;
-  max-height: 300px;
-  object-fit: contain;
-  user-select: none;
-}
-
-/* Footer */
-.popover-footer small {
-  color: #7f8fa4;
-}
-
-/* Close Button */
-.close-popover-btn {
-  background-color: #0563bb;
+.popover-close-btn {
+  background: none;
   border: none;
-  color: white;
-  padding: 7px 18px;
-  border-radius: 20px;
-  font-size: 14px;
+  font-size: 2rem;
+  color: #667da6;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: color 0.2s;
+  line-height: 1;
+  margin-left: 20px;
+  padding: 0 6px;
+}
+.popover-close-btn:hover {
+  color: #ff4a71;
 }
 
-.close-popover-btn:hover {
-  background-color: #0678e3;
+.popover-body-row {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+  align-items: flex-start;
+  min-height: 240px;
 }
 
-/* Responsive for small screens */
+.popover-app-desc {
+  flex: 1 1 340px;
+  padding-right: 32px;
+  color: #cdd6f6;
+  font-size: 1.076rem;
+  overflow-y: auto;
+  max-height: 45vh;
+  margin-top:4px;
+}
+.popover-app-desc::-webkit-scrollbar { width:6px; background:transparent;}
+.popover-app-desc::-webkit-scrollbar-thumb {background:#223b55; border-radius:5px;}
+
+.popover-screenshots {
+  flex: 0 0 295px;    /* fixed width for screenshots column */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;       /* allow overflow-x to work! */
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+/* Key fix for horizontal scroll and image sizing in popover-carousel: */
+.popover-carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 285px;
+  padding-bottom: 4px;
+  margin-left: 4px;
+  min-width: 0;
+}
+
+.popover-carousel img {
+  flex-shrink: 0;
+  width: 135px;
+  height: 270px;
+  max-height: 90vh;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #1d2e48;
+  box-shadow: 0 1px 7px -3px #0563bb80;
+  user-select: none;
+  display: block;
+}
+
+
+.popover-carousel::-webkit-scrollbar { height: 7px; background: #223b55; border-radius: 10px; }
+.popover-carousel::-webkit-scrollbar-thumb { background: #0563bb66; border-radius: 8px; }
+.popover-carousel::-webkit-scrollbar-thumb:hover { background: #53d3b980; }
+
+.popover-carousel img:hover {
+  box-shadow: 0 4px 18px -1px #36e3eb50;
+}
+
+@media (max-width: 1100px) {
+  .popover { width: 98vw; max-width: 98vw; }
+ .popover-screenshots, .popover-carousel { max-width: 170px; }
+  .popover-carousel img { width: 90px; height: 120px; }
+ }
+
 @media (max-width: 700px) {
-  .popover {
-    width: 95vw;
-    padding: 15px 20px;
-  }
-
-  .popover-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .popover .carousel-inner img {
-    max-height: 200px;
-  }
+  .popover-inner { padding: 18px 6vw 20px 6vw;}
+  .popover-body-row {flex-direction: column;}
+  .popover-app-desc {max-height:none; padding-right:0; margin-bottom:18px;}
+  .popover-screenshots, .popover-carousel { max-width: 100vw; }
+  .popover-carousel img { width: 60px; height: 90px; }
 }
 

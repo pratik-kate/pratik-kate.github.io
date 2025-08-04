@@ -183,59 +183,66 @@
     items: 1
   });
 
+// $(document).ready(function() {
+//   $('.show-popover-btn').on('click', function(e) {
+//     e.stopPropagation();
+
+//     const $btn = $(this);
+//     const $card = $btn.closest('.member-card');
+//     const $popover = $card.find('.popover');
+
+//     // Show popover (no need to set top/left for fixed popover)
+//     $popover.css({
+//       display: 'flex',  // flex to enable scroll container
+//       zIndex: 1060
+//     });
+
+//     // Initialize carousel if present
+//     const carouselElement = $popover.find('.carousel-popover-carousel')[0];
+//     if (carouselElement) {
+//       if(carouselElement._carouselInstance){
+//         carouselElement._carouselInstance.dispose();
+//       }
+//       carouselElement._carouselInstance = new bootstrap.Carousel(carouselElement, {
+//         interval: 3000,
+//         ride: 'carousel',
+//         pause: false,
+//         wrap: true,
+//       });
+//     }
+//   });
+
+//   $('.close-popover-btn').on('click', function() {
+//     const $btn = $(this);
+//     const $card = $btn.closest('.member-card');
+//     const $popover = $card.find('.popover');
+//     $popover.hide();
+//   });
+
+//   $('.popover').on('click', function(e) {
+//     e.stopPropagation();
+//   });
+
+//   $(document).on('click', function() {
+//     $('.popover').hide();
+//   });
+// });
+
+
 $(document).ready(function() {
   $('.show-popover-btn').on('click', function(e) {
     e.stopPropagation();
-
-    const $btn = $(this);
-    const $card = $btn.closest('.member-card');
-    const $popover = $card.find('.popover');
-
-    // Position popover below button but centered horizontally on screen, and not off-screen
-    const left = Math.max(20, (window.innerWidth - $popover.outerWidth()) / 2);
-    const top = (window.scrollY || window.pageYOffset) + 100; // fixed 100px from top for better user view
-
-    $popover.css({
-    top: '120px',
-    left: '20px',
-    display: 'block',
-    position: 'absolute',
-    zIndex: 99999
+    $(this).closest('.member-card').find('.popover').fadeIn(120);
   });
-
-    // Initialize Carousel inside the shown popover
-    // Bootstrap 5 expects us to create carousel via JS for dynamic content
-    const carouselElement = $popover.find('.carousel-popover-carousel')[0];
-    if (carouselElement) {
-      // Destroy previous instance if exists to avoid multiple
-      if (carouselElement._carouselInstance) {
-        carouselElement._carouselInstance.dispose();
-      }
-      carouselElement._carouselInstance = new bootstrap.Carousel(carouselElement, {
-        interval: 3000,
-        ride: 'carousel',
-        pause: false,
-        wrap: true,
-      });
-    }
-  });
-
   $('.close-popover-btn').on('click', function() {
-    const $btn = $(this);
-    const $card = $btn.closest('.member-card');
-    const $popover = $card.find('.popover');
-
-    $popover.hide();
+    $(this).closest('.popover').fadeOut(120);
   });
-
-  $('.popover').on('click', function(e) {
-    e.stopPropagation();
-  });
-
+  $('.popover').on('click', function(e) { e.stopPropagation(); });
   $(document).on('click', function() {
-    $('.popover').hide();
+    $('.popover').fadeOut(120);
   });
 });
+
 
 
 })(jQuery);
