@@ -242,7 +242,34 @@ $(document).ready(function() {
     $('.popover').fadeOut(120);
   });
 });
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.popover-carousel');
+  const images = carousel.querySelectorAll('img');
+  let currentIndex = 0;
+  const totalImages = images.length;
 
+  function scrollToImage(index) {
+    const targetImg = images[index];
+    if (targetImg) {
+      const scrollLeft = targetImg.offsetLeft - carousel.offsetLeft;
+      carousel.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      });
+    }
+  }
 
+  function autoPage() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    scrollToImage(currentIndex);
+  }
+
+  let interval = setInterval(autoPage, 3000);
+
+  carousel.addEventListener('mouseenter', () => clearInterval(interval));
+  carousel.addEventListener('mouseleave', () => {
+    interval = setInterval(autoPage, 3000);
+  });
+});
 
 })(jQuery);
