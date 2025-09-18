@@ -244,14 +244,16 @@ $(document).ready(function() {
 });
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.querySelector('.popover-carousel');
-  const images = carousel.querySelectorAll('img');
+  if (!carousel) return;
+  // Select both images and videos
+  const items = carousel.querySelectorAll('img, video');
   let currentIndex = 0;
-  const totalImages = images.length;
+  const totalItems = items.length;
 
-  function scrollToImage(index) {
-    const targetImg = images[index];
-    if (targetImg) {
-      const scrollLeft = targetImg.offsetLeft - carousel.offsetLeft;
+  function scrollToItem(index) {
+    const target = items[index];
+    if (target) {
+      const scrollLeft = target.offsetLeft - carousel.offsetLeft;
       carousel.scrollTo({
         left: scrollLeft,
         behavior: 'smooth'
@@ -260,8 +262,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function autoPage() {
-    currentIndex = (currentIndex + 1) % totalImages;
-    scrollToImage(currentIndex);
+    currentIndex = (currentIndex + 1) % totalItems;
+    scrollToItem(currentIndex);
   }
 
   let interval = setInterval(autoPage, 3000);

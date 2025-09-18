@@ -1406,6 +1406,18 @@ h4 {
   display: block;
 }
 
+.popover-carousel video {
+  scroll-snap-align: start;
+  max-width: 60vw;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #1d2e48;
+  box-shadow: 0 1px 7px -3px #0563bb80;
+  user-select: none;
+  display: block;
+}
+
 
 .popover-screenwise-details ul {
   margin: 0;
